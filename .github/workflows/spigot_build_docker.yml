@@ -22,8 +22,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          path: docker-build
       - name: Repo metadata
         id: repo
         uses: actions/github-script@v4
@@ -51,7 +49,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: docker-build/docker
           platforms: |
             linux/amd64
             linux/arm64
