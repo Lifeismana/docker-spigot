@@ -1,6 +1,4 @@
-FROM ubuntu:focal
-
-LABEL org.opencontainers.image.authors="Lifeismana"
+FROM nimmis/ubuntu:20.04
 
 ARG ZULU_REPO_VER=1.0.0-3
 
@@ -36,8 +34,6 @@ RUN apt-get -qq update && \
 
 
 ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-${dpkgArch}
-
-
 
 # add extra files needed
 COPY rootfs /
