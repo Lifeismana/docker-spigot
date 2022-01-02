@@ -18,7 +18,7 @@ jobs:
       packages: write
     env:
       TITLE: Spigot
-      GHCR_SLUG: ghcr.io/lifeismana/redlavalinkdocker
+      GHCR_SLUG: ghcr.io/lifeismana/docker-spigot
     steps:
       - name: Checkout
         uses: actions/checkout@v2
