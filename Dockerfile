@@ -4,6 +4,23 @@ LABEL org.opencontainers.image.authors="Lifeismana"
 
 ARG ZULU_REPO_VER=1.0.0-2
 
+# SPIGOT_HOME         default directory for SPIGOT-server
+# SPIGOT_VER          default minecraft version to compile
+# SPIGOT_AUTORESTART  set to yes to restart if minecraft stop command is executed
+ENV SPIGOT_HOME=/minecraft \
+    SPIGOT_VER=latest \
+    SPIGOT_AUTORESTART=yes \
+    MC_MAXMEM= \
+    MC_MINMEM= \
+    OTHER_JAVA_OPS= \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8\
+    TZ=Europe/Paris
+
+# disable interactive functions
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get -qq update && \
     apt-get -qq -y --no-install-recommends install gnupg software-properties-common locales curl wget git jq && \
     locale-gen en_US.UTF-8 && \
@@ -20,21 +37,7 @@ RUN apt-get -qq update && \
 
 ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
 
-# SPIGOT_HOME         default directory for SPIGOT-server
-# SPIGOT_VER          default minecraft version to compile
-# SPIGOT_AUTORESTART  set to yes to restart if minecraft stop command is executed
-ENV SPIGOT_HOME=/minecraft \
-    SPIGOT_VER=latest \
-    SPIGOT_AUTORESTART=yes \
-    MC_MAXMEM= \
-    MC_MINMEM= \
-    OTHER_JAVA_OPS= \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
 
-# disable interactive functions
-ENV DEBIAN_FRONTEND noninteractive
 
 # add extra files needed
 COPY rootfs /
