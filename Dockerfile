@@ -27,7 +27,7 @@ RUN apt-get -qq update && \
     apt-get -qq update && \
     apt-get -qq -y dist-upgrade && \
     apt-get -qq -y --no-install-recommends install zulu17-jdk && \
-    apt-get -qq -y purge gnupg software-properties-common curl && \
+    apt-get -qq -y purge gnupg software-properties-common && \
     apt -y autoremove && \
     rm -rf /var/lib/apt/lists/* zulu-repo_${ZULU_REPO_VER}_all.deb\
     dpkgArch="$(dpkg --print-architecture)";
