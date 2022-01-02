@@ -28,9 +28,7 @@ RUN apt-get -qq update && \
     curl -sLO https://cdn.azul.com/zulu/bin/zulu-repo_${ZULU_REPO_VER}_all.deb && dpkg -i zulu-repo_${ZULU_REPO_VER}_all.deb && \
     apt-get -qq update && \
     apt-get -qq -y dist-upgrade && \
-    mkdir -p /usr/share/man/man1 && \
-    echo "Package: zulu17-*\nPin: version 17.30+15*\nPin-Priority: 1001" > /etc/apt/preferences && \
-    apt-get -qq -y --no-install-recommends install zulu17-jdk=17.0.1-* && \
+    apt-get -qq -y --no-install-recommends install zulu17-jdk && \
     apt-get -qq -y purge gnupg software-properties-common curl && \
     apt -y autoremove && \
     rm -rf /var/lib/apt/lists/* zulu-repo_${ZULU_REPO_VER}_all.deb\
