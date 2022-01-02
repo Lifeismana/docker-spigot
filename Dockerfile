@@ -2,7 +2,7 @@ FROM ubuntu:focal
 
 LABEL org.opencontainers.image.authors="Lifeismana"
 
-ARG ZULU_REPO_VER=1.0.0-2
+ARG ZULU_REPO_VER=1.0.0-3
 
 # SPIGOT_HOME         default directory for SPIGOT-server
 # SPIGOT_VER          default minecraft version to compile
@@ -33,9 +33,11 @@ RUN apt-get -qq update && \
     apt-get -qq -y --no-install-recommends install zulu17-jdk=17.0.1-* && \
     apt-get -qq -y purge gnupg software-properties-common curl && \
     apt -y autoremove && \
-    rm -rf /var/lib/apt/lists/* zulu-repo_${ZULU_REPO_VER}_all.deb
+    rm -rf /var/lib/apt/lists/* zulu-repo_${ZULU_REPO_VER}_all.deb\
+    dpkgArch="$(dpkg --print-architecture)";
 
-ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
+
+ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-${dpkgArch}
 
 
 
