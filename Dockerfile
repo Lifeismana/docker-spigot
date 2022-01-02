@@ -42,9 +42,7 @@ ENV JAVA_HOME=/usr/lib/jvm/zulu17-ca-amd64
 # add extra files needed
 COPY rootfs /
 
-RUN /usr/sbin/useradd -s /bin/bash -d /minecraft -m minecraft && \
-
-    sed -i '/en_US.UTF-8/s/^ '
+RUN /usr/sbin/useradd -s /bin/bash -d /minecraft -m minecraft
 
 # expose minecraft port
 EXPOSE 25565
