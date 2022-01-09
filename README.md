@@ -1,3 +1,5 @@
+## Note to self, good implementation, bad usage
+
 ## Minecraft server SPIGOT on Ubuntu 20.04 with OpenJDK 11/16/17
 
 ![](https://img.shields.io/docker/pulls/nimmis/spigot?style=flat-square)
